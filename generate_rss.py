@@ -1,2 +1,111 @@
-<?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>Daily Newsletter</title><link>http://davidshadle.com</link><description>Daily updates on global, regional, and topic-specific headlines.</description><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><lastBuildDate>Mon, 23 Jun 2025 19:45:26</lastBuildDate><language>en-us</language><item><title>Global Headline 1</title><description>Summary of global headline 1.</description><link>http://example.com/global1</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/global1</guid><category>Global</category></item><item><title>Global Headline 2</title><description>Summary of global headline 2.</description><link>http://example.com/global2</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/global2</guid><category>Global</category></item><item><title>Global Headline 3</title><description>Summary of global headline 3.</description><link>http://example.com/global3</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/global3</guid><category>Global</category></item><item><title>Global Headline 4</title><description>Summary of global headline 4.</description><link>http://example.com/global4</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/global4</guid><category>Global</category></item><item><title>Global Headline 5</title><description>Summary of global headline 5.</description><link>http://example.com/global5</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/global5</guid><category>Global</category></item><item><title>Global Headline 6</title><description>Summary of global headline 6.</description><link>http://example.com/global6</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/global6</guid><category>Global</category></item><item><title>Global Headline 7</title><description>Summary of global headline 7.</description><link>http://example.com/global7</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/global7</guid><category>Global</category></item><item><title>Global Headline 8</title><description>Summary of global headline 8.</description><link>http://example.com/global8</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/global8</guid><category>Global</category></item><item><title>Global Headline 9</title><description>Summary of global headline 9.</description><link>http://example.com/global9</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/global9</guid><category>Global</category></item><item><title>Global Headline 10</title><description>Summary of global headline 10.</description><link>http://example.com/global10</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/global10</guid><category>Global</category></item><item><title>Europe Headline 1</title><description>Summary of Europe headline 1.</description><link>http://example.com/region1</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/region1</guid><category>Europe</category></item><item><title>Europe Headline 2</title><description>Summary of Europe headline 2.</description><link>http://example.com/region2</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/region2</guid><category>Europe</category></item><item><title>Europe Headline 3</title><description>Summary of Europe headline 3.</description><link>http://example.com/region3</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/region3</guid><category>Europe</category></item><item><title>Europe Headline 4</title><description>Summary of Europe headline 4.</description><link>http://example.com/region4</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/region4</guid><category>Europe</category></item><item><title>Europe Headline 5</title><description>Summary of Europe headline 5.</description><link>http://example.com/region5</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/region5</guid><category>Europe</category></item><item><title>Science &amp; Discovery Headline 1</title><description>Summary of Science &amp; Discovery headline 1.</description><link>http://example.com/topic1</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/topic1</guid><category>Science &amp; Discovery</category></item><item><title>Science &amp; Discovery Headline 2</title><description>Summary of Science &amp; Discovery headline 2.</description><link>http://example.com/topic2</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/topic2</guid><category>Science &amp; Discovery</category></item><item><title>Science &amp; Discovery Headline 3</title><description>Summary of Science &amp; Discovery headline 3.</description><link>http://example.com/topic3</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/topic3</guid><category>Science &amp; Discovery</category></item><item><title>Science &amp; Discovery Headline 4</title><description>Summary of Science &amp; Discovery headline 4.</description><link>http://example.com/topic4</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/topic4</guid><category>Science &amp; Discovery</category></item><item><title>Science &amp; Discovery Headline 5</title><description>Summary of Science &amp; Discovery headline 5.</description><link>http://example.com/topic5</link><pubDate>Mon, 23 Jun 2025 19:45:26</pubDate><guid>http://example.com/topic5</guid><category>Science &amp; Discovery</category></item></channel></rss>
+
+import requests
+import datetime
+import xml.etree.ElementTree as ET
+
+# Replace 'YOUR_NEWSAPI_KEY' with your actual NewsAPI.org API key
+API_KEY = 'YOUR_NEWSAPI_KEY'
+
+# Define the regions and topics for each day of the week
+weekly_rotation = {
+    'Monday': {'region': 'Europe', 'topic': 'Science'},
+    'Tuesday': {'region': 'Asia', 'topic': 'Business'},
+    'Wednesday': {'region': 'South America', 'topic': 'Technology'},
+    'Thursday': {'region': 'North America', 'topic': 'Health'},
+    'Friday': {'region': 'Africa', 'topic': 'Environment'},
+    'Saturday': {'region': 'Global', 'topic': 'Politics'},
+    'Sunday': {'region': 'Local', 'topic': 'Society'}
+}
+
+# Get today's day of the week
+today = datetime.datetime.now().strftime('%A')
+
+# Get the region and topic for today
+region_focus = weekly_rotation[today]['region']
+topic_focus = weekly_rotation[today]['topic']
+
+# Function to fetch headlines from NewsAPI
+def fetch_headlines(query, language='en', page_size=10):
+    url = f'https://newsapi.org/v2/everything?q={query}&language={language}&pageSize={page_size}&apiKey={API_KEY}'
+    response = requests.get(url)
+    data = response.json()
+    return data['articles']
+
+# Fetch global headlines
+global_headlines = fetch_headlines('global', page_size=10)
+
+# Fetch regional headlines
+regional_headlines = fetch_headlines(region_focus, page_size=5)
+
+# Fetch topic headlines
+topic_headlines = fetch_headlines(topic_focus, page_size=5)
+
+# Function to create an RSS feed
+def create_rss_feed(global_headlines, regional_headlines, topic_headlines):
+    rss = ET.Element('rss', version='2.0')
+    channel = ET.SubElement(rss, 'channel')
+    title = ET.SubElement(channel, 'title')
+    title.text = 'Daily Newsletter'
+    link = ET.SubElement(channel, 'link')
+    link.text = 'http://davidshadle.com'
+    description = ET.SubElement(channel, 'description')
+    description.text = 'Daily curated headlines from around the world.'
+    pubDate = ET.SubElement(channel, 'pubDate')
+    pubDate.text = datetime.datetime.now().strftime('%a, %d %b %Y %H:%M:%S %z')
+    lastBuildDate = ET.SubElement(channel, 'lastBuildDate')
+    lastBuildDate.text = datetime.datetime.now().strftime('%a, %d %b %Y %H:%M:%S %z')
+    atom_link = ET.SubElement(channel, 'atom:link', href='http://davidshadle.com/daily_newsletter.xml', rel='self', type='application/rss+xml')
+
+    # Add global headlines
+    for article in global_headlines:
+        item = ET.SubElement(channel, 'item')
+        title = ET.SubElement(item, 'title')
+        title.text = article['title']
+        link = ET.SubElement(item, 'link')
+        link.text = article['url']
+        description = ET.SubElement(item, 'description')
+        description.text = article['description']
+        pubDate = ET.SubElement(item, 'pubDate')
+        pubDate.text = datetime.datetime.strptime(article['publishedAt'], '%Y-%m-%dT%H:%M:%SZ').strftime('%a, %d %b %Y %H:%M:%S %z')
+        guid = ET.SubElement(item, 'guid')
+        guid.text = article['url']
+
+    # Add regional headlines
+    for article in regional_headlines:
+        item = ET.SubElement(channel, 'item')
+        title = ET.SubElement(item, 'title')
+        title.text = article['title']
+        link = ET.SubElement(item, 'link')
+        link.text = article['url']
+        description = ET.SubElement(item, 'description')
+        description.text = article['description']
+        pubDate = ET.SubElement(item, 'pubDate')
+        pubDate.text = datetime.datetime.strptime(article['publishedAt'], '%Y-%m-%dT%H:%M:%SZ').strftime('%a, %d %b %Y %H:%M:%S %z')
+        guid = ET.SubElement(item, 'guid')
+        guid.text = article['url']
+        category = ET.SubElement(item, 'category')
+        category.text = region_focus
+
+    # Add topic headlines
+    for article in topic_headlines:
+        item = ET.SubElement(channel, 'item')
+        title = ET.SubElement(item, 'title')
+        title.text = article['title']
+        link = ET.SubElement(item, 'link')
+        link.text = article['url']
+        description = ET.SubElement(item, 'description')
+        description.text = article['description']
+        pubDate = ET.SubElement(item, 'pubDate')
+        pubDate.text = datetime.datetime.strptime(article['publishedAt'], '%Y-%m-%dT%H:%M:%SZ').strftime('%a, %d %b %Y %H:%M:%S %z')
+        guid = ET.SubElement(item, 'guid')
+        guid.text = article['url']
+        category = ET.SubElement(item, 'category')
+        category.text = topic_focus
+
+    tree = ET.ElementTree(rss)
+    tree.write('daily_newsletter.xml', encoding='utf-8', xml_declaration=True)
+
+# Create the RSS feed
+create_rss_feed(global_headlines, regional_headlines, topic_headlines)
+
+print("RSS feed generated successfully.")
