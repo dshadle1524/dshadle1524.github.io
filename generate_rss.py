@@ -4,7 +4,7 @@ import datetime
 import xml.etree.ElementTree as ET
 
 # Replace 'YOUR_NEWSAPI_KEY' with your actual NewsAPI.org API key
-API_KEY = 'YOUR_NEWSAPI_KEY'
+API_KEY = '44f4564d776049e6972376e8a9cf376d'
 
 # Define the regions and topics for each day of the week
 weekly_rotation = {
