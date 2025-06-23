@@ -26,7 +26,7 @@ jobs:
     - name: Run RSS generator script
       run: python generate_rss.py
 
-       - name: Commit and push updated RSS feed
+    - name: Commit and push updated RSS feed
       env:
         GH_PAT: ${{ secrets.GH_PAT }}
       run: |
