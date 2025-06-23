@@ -28,7 +28,7 @@ jobs:
 
     - name: Commit and push updated RSS feed
       env:
-        GH_PAT: ${{ secrets.GH_PAT_C }}
+        GH_PAT_C: ${{ secrets.GH_PAT_C }}
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
