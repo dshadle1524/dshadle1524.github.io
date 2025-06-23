@@ -28,11 +28,11 @@ jobs:
 
     - name: Commit and push updated RSS feed
       env:
-        GH_PAT: ${{ secrets.GH_PAT }}
+        GH_PAT: ${{ secrets.GH_PAT_C }}
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
+        git remote set-url origin https://x-access-token:${GH_PAT_C}@github.com/${{ github.repository }}
         git add daily_newsletter.xml
         git commit -m 'Daily update of RSS feed' || echo "No changes to commit"
         git push
