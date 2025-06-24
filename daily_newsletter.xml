@@ -21,7 +21,7 @@
       <pubDate>Tue, 24 Jun 2025 05:30:00 +0000</pubDate>
       <guid>https://example.com/climate-summit-agreement</guid>
       <category>Global</category>
-      <source>Reuters</source>
+      <source url="https://reuters.com">Reuters</source>
     </item>
     
     <item>
@@ -31,7 +31,7 @@
       <pubDate>Tue, 24 Jun 2025 04:45:00 +0000</pubDate>
       <guid>https://example.com/economic-indicators-mixed</guid>
       <category>Global</category>
-      <source>Financial Times</source>
+      <source url="https://ft.com">Financial Times</source>
     </item>
     
     <!-- Regional Headlines Section (Example: Asia for Tuesday) -->
@@ -42,7 +42,7 @@
       <pubDate>Tue, 24 Jun 2025 03:20:00 +0000</pubDate>
       <guid>https://example.com/asian-trade-ministers-supply-chain</guid>
       <category>Asia</category>
-      <source>Nikkei Asia</source>
+      <source url="https://asia.nikkei.com">Nikkei Asia</source>
     </item>
     
     <item>
@@ -52,7 +52,7 @@
       <pubDate>Tue, 24 Jun 2025 02:15:00 +0000</pubDate>
       <guid>https://example.com/innovation-hub-southeast-asia</guid>
       <category>Asia</category>
-      <source>South China Morning Post</source>
+      <source url="https://scmp.com">South China Morning Post</source>
     </item>
     
     <!-- Topic Headlines Section (Example: Business & Economy for Tuesday) -->
@@ -63,7 +63,7 @@
       <pubDate>Tue, 24 Jun 2025 01:30:00 +0000</pubDate>
       <guid>https://example.com/central-banks-coordinated-policy</guid>
       <category>Business</category>
-      <source>Bloomberg</source>
+      <source url="https://bloomberg.com">Bloomberg</source>
     </item>
     
     <item>
@@ -73,7 +73,7 @@
       <pubDate>Tue, 24 Jun 2025 00:45:00 +0000</pubDate>
       <guid>https://example.com/sustainable-finance-standards</guid>
       <category>Business</category>
-      <source>Wall Street Journal</source>
+      <source url="https://wsj.com">Wall Street Journal</source>
     </item>
     
   </channel>
