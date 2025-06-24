@@ -1,4 +1,3 @@
-
 import requests
 import datetime
 import xml.etree.ElementTree as ET
@@ -288,9 +287,13 @@ def create_rss_feed(global_headlines, regional_headlines, topic_headlines):
                 category_elem = ET.SubElement(item, 'category')
                 category_elem.text = category
             
-            # Source
-            source_elem = ET.SubElement(item, 'source')
-            source_elem.text = article.get('source', {}).get('name', 'Unknown')
+            # Source with required URL attribute
+            source_name = article.get('source', {}).get('name', 'Unknown')
+            source_url = article.get('source', {}).get('url', '')
+            if source_url:
+                source_elem = ET.SubElement(item, 'source')
+                source_elem.set('url', source_url)
+                source_elem.text = source_name
     
     # Add articles to feed
     add_articles_to_feed(global_headlines, 'Global')
