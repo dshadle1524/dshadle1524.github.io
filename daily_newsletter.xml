@@ -1,80 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Daily Global News Digest</title>
     <link>https://dshadle1524.github.io</link>
-    <description>Daily curated headlines: Global news, regional focus, and topic-specific coverage</description>
-    <language>en-us</language>
-    <pubDate>Tue, 24 Jun 2025 06:00:00 +0000</pubDate>
-    <lastBuildDate>Tue, 24 Jun 2025 06:00:00 +0000</lastBuildDate>
+    <description>Daily curated headlines: Global news, Asia regional focus, Business topic focus</description>
+    <pubDate>Tue, 24 Jun 2025 18:57:57 +0000</pubDate>
+    <lastBuildDate>Tue, 24 Jun 2025 18:57:57 +0000</lastBuildDate>
     <atom:link href="https://dshadle1524.github.io/daily_newsletter.xml" rel="self" type="application/rss+xml" />
-    <managingEditor>noreply@dshadle1524.github.io (Daily News Digest)</managingEditor>
-    <webMaster>noreply@dshadle1524.github.io (Daily News Digest)</webMaster>
-    <generator>Custom RSS Generator v1.0</generator>
-    <ttl>1440</ttl>
-    
-    <!-- Global Headlines Section -->
-    <item>
-      <title>Sample Global Headline: International Climate Summit Reaches Key Agreement</title>
-      <link>https://example.com/climate-summit-agreement</link>
-      <description>World leaders at the international climate summit have reached a breakthrough agreement on carbon emission reduction targets for the next decade. The accord includes binding commitments from major economies and establishes a new framework for climate finance. Environmental groups have cautiously welcomed the deal while calling for stronger enforcement mechanisms.</description>
-      <pubDate>Tue, 24 Jun 2025 05:30:00 +0000</pubDate>
-      <guid>https://example.com/climate-summit-agreement</guid>
-      <category>Global</category>
-      <source url="https://reuters.com">Reuters</source>
-    </item>
-    
-    <item>
-      <title>Sample Global Headline: Global Economic Indicators Show Mixed Signals</title>
-      <link>https://example.com/economic-indicators-mixed</link>
-      <description>The latest global economic data presents a complex picture with manufacturing showing signs of recovery while services sectors remain under pressure. Central bank officials from major economies are closely monitoring inflation trends and employment figures. Market analysts suggest cautious optimism but warn of potential volatility in the coming months.</description>
-      <pubDate>Tue, 24 Jun 2025 04:45:00 +0000</pubDate>
-      <guid>https://example.com/economic-indicators-mixed</guid>
-      <category>Global</category>
-      <source url="https://ft.com">Financial Times</source>
-    </item>
-    
-    <!-- Regional Headlines Section (Example: Asia for Tuesday) -->
-    <item>
-      <title>Sample Regional Headline: Asian Trade Ministers Discuss Supply Chain Resilience</title>
-      <link>https://example.com/asian-trade-ministers-supply-chain</link>
-      <description>Trade ministers from ASEAN nations convened to address supply chain vulnerabilities exposed by recent global disruptions. The meeting focused on diversifying trade routes and strengthening regional partnerships. Officials announced plans for a new digital trade framework to enhance cross-border commerce efficiency.</description>
-      <pubDate>Tue, 24 Jun 2025 03:20:00 +0000</pubDate>
-      <guid>https://example.com/asian-trade-ministers-supply-chain</guid>
-      <category>Asia</category>
-      <source url="https://asia.nikkei.com">Nikkei Asia</source>
-    </item>
-    
-    <item>
-      <title>Sample Regional Headline: Innovation Hub Launched in Southeast Asia</title>
-      <link>https://example.com/innovation-hub-southeast-asia</link>
-      <description>A major technology innovation hub has been established in Southeast Asia to foster regional collaboration in emerging technologies. The initiative brings together universities, research institutions, and private sector partners. The hub will focus on artificial intelligence, renewable energy, and sustainable development solutions.</description>
-      <pubDate>Tue, 24 Jun 2025 02:15:00 +0000</pubDate>
-      <guid>https://example.com/innovation-hub-southeast-asia</guid>
-      <category>Asia</category>
-      <source url="https://scmp.com">South China Morning Post</source>
-    </item>
-    
-    <!-- Topic Headlines Section (Example: Business & Economy for Tuesday) -->
-    <item>
-      <title>Sample Topic Headline: Central Banks Signal Coordinated Policy Approach</title>
-      <link>https://example.com/central-banks-coordinated-policy</link>
-      <description>Major central banks are signaling a more coordinated approach to monetary policy in response to global economic uncertainties. The Federal Reserve, European Central Bank, and Bank of Japan have increased communication channels to ensure policy alignment. Economists view this coordination as crucial for maintaining financial stability.</description>
-      <pubDate>Tue, 24 Jun 2025 01:30:00 +0000</pubDate>
-      <guid>https://example.com/central-banks-coordinated-policy</guid>
-      <category>Business</category>
-      <source url="https://bloomberg.com">Bloomberg</source>
-    </item>
-    
-    <item>
-      <title>Sample Topic Headline: Sustainable Finance Standards Gain Global Adoption</title>
-      <link>https://example.com/sustainable-finance-standards</link>
-      <description>International financial institutions are rapidly adopting new sustainable finance standards that prioritize environmental and social governance criteria. The standards are expected to redirect trillions of dollars toward sustainable investments over the next decade. Industry experts predict this shift will fundamentally reshape global capital markets.</description>
-      <pubDate>Tue, 24 Jun 2025 00:45:00 +0000</pubDate>
-      <guid>https://example.com/sustainable-finance-standards</guid>
-      <category>Business</category>
-      <source url="https://wsj.com">Wall Street Journal</source>
-    </item>
-    
   </channel>
 </rss>
