@@ -50,7 +50,7 @@ topic_headlines = fetch_headlines(topic_focus, page_size=5)
 
 # Function to create an RSS feed
 def create_rss_feed(global_headlines, regional_headlines, topic_headlines):
-    rss = ET.Element('rss', version='2.0')
+    rss = ET.Element('rss', {'version': '2.0','xmlns:atom': 'http://www.w3.org/2005/Atom'})
     channel = ET.SubElement(rss, 'channel')
     title = ET.SubElement(channel, 'title')
     title.text = 'Daily Newsletter'
