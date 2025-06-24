@@ -8,15 +8,20 @@ on:
 jobs:
   update-rss-feed:
     runs-on: ubuntu-latest
-
+    
+    permissions:
+      contents: write  # Required for pushing changes
+    
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GH_PAT_C }}
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.x'
+        python-version: '3.11'
 
     - name: Install dependencies
       run: |
@@ -24,16 +29,46 @@ jobs:
         pip install requests
 
     - name: Run RSS generator script
+      env:
+        NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
       run: python generate_rss.py
 
-    - name: Commit and push updated RSS feed
-      env:
-        GH_PAT_C: ${{ secrets.GH_PAT_C }}
+    - name: Validate RSS feed
       run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git remote set-url origin https://x-access-token:${GH_PAT_C}@github.com/${{ github.repository }}
-        git add daily_newsletter.xml
-        git commit -m 'Daily update of RSS feed' || echo "No changes to commit"
-        git push
+        # Check if RSS file was created and has content
+        if [ ! -f "daily_newsletter.xml" ]; then
+          echo "Error: RSS file not created"
+          exit 1
+        fi
+        
+        # Check if file has valid XML structure
+        if ! head -1 daily_newsletter.xml | grep -q "<?xml"; then
+          echo "Error: Invalid XML structure"
+          exit 1
+        fi
+        
+        echo "RSS feed validation passed"
 
+    - name: Commit and push updated RSS feed
+      run: |
+        git config --local user.name 'github-actions[bot]'
+        git config --local user.email 'github-actions[bot]@users.noreply.github.com'
+        
+        # Check if there are changes
+        if git diff --quiet daily_newsletter.xml; then
+          echo "No changes to RSS feed"
+        else
+          git add daily_newsletter.xml
+          git commit -m "Daily RSS feed update - $(date +'%Y-%m-%d %H:%M UTC')"
+          git push
+          echo "RSS feed updated and pushed"
+        fi
+
+    - name: Display feed stats
+      run: |
+        if [ -f "daily_newsletter.xml" ]; then
+          echo "RSS feed statistics:"
+          echo "File size: $(wc -c < daily_newsletter.xml) bytes"
+          echo "Number of items: $(grep -c '<item>' daily_newsletter.xml || echo '0')"
+          echo "Last updated: $(date)"
+        fi
